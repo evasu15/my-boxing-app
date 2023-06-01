@@ -9,7 +9,7 @@ interface User {
   } | null;
   error: string | null;
   loading: boolean;
-};
+}
 
 const UserContext = createContext<
   [User, React.Dispatch<React.SetStateAction<User>>]
@@ -26,10 +26,10 @@ const UserProvider = ({ children }: any) => {
 
   if (token) {
     axios.defaults.headers.common["authorization"] = `Bearer ${token}`;
-  };
+  }
 
   const fetchUser = async () => {
-    const { data: response } = await axios.get("http://localhost:8081/auth/me");
+    const { data: response } = await axios.get("http://localhost:8089/auth/me");
 
     if (response.data && response.data.user) {
       setUser({

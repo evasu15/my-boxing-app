@@ -6,7 +6,7 @@ import { Card, Button } from "react-bootstrap";
 
 const CardsContainer = styled.div`
   display: flex;
-  height: 75vh;
+  height: 70vh;
   align-items: center;
   justify-content: center;
 `;
@@ -45,7 +45,7 @@ const ArticlesPlan = () => {
 
   const fetchPrices = async () => {
     const { data: response } = await axios.get(
-      "http://localhost:8081/subs/prices"
+      "http://localhost:8089/subs/prices"
     );
     console.log(response);
     setPrices(response.data);
@@ -53,7 +53,7 @@ const ArticlesPlan = () => {
 
   const createSession = async (priceId: string) => {
     const { data: response } = await axios.post(
-      "http://localhost:8081/subs/session",
+      "http://localhost:8089/subs/session",
       {
         priceId,
       }
@@ -63,9 +63,9 @@ const ArticlesPlan = () => {
   };
 
   const backgroundColors: any = {
-    Basic: "rgb(104, 219, 104)",
-    Standard: "rgb(185, 42, 23, 0.835)",
-    Premium: "pink",
+    Beginners: "black",
+    Intermediate: "grey",
+    Advanced: "blue",
   };
 
   return (

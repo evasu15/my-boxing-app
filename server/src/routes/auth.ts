@@ -88,7 +88,7 @@ router.post("/login", async (req, res) => {
     return res.json({
       errors: [
         {
-          msg: "Invalids credentials",
+          msg: "Invalid credentials",
         },
       ],
       data: null,
@@ -101,7 +101,7 @@ router.post("/login", async (req, res) => {
     return res.json({
       errors: [
         {
-          msg: "Invalids credentials",
+          msg: "Invalid credentials",
         },
       ],
       data: null,
