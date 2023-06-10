@@ -18,15 +18,16 @@ router.get("/prices", checkAuth, async (req, res) => {
 router.post("/session", checkAuth, async (req, res) => {
   const user = await User.findOne({ email: req.user });
 
- Article.create({
-   title: "Intermediate Level",
-   imageUrl: "https://www.youtube.com/embed/CRVHDeaRYqM",
-   content: "Learn intermediate level boxing combinations and get in great shape with my intermediate boxing program!",
-   access: "Intermediate",
-  }); 
+// Article.create({
+ //  title: "Advanced Level",
+ //  videoUrl: "https://player.vimeo.com/video/835059477?title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
+  // content: "This video consists of long boxing combinations mixed with head movement and footwork drills. HIIT workouts are added in between combinations for a better workout. Equipment needed for this workout includes: Boxing Gloves and Boxing Bag.",
+   //access: "Advanced",
+//  }); 
 
-//<iframe width="560" height="315" src="https://www.youtube.com/embed/_4GBbfsoxQo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
+  //<iframe src="https://player.vimeo.com/video/835059477?title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1920" height="1080" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Advance Program Video 2 With Equipment"></iframe>
+ // <iframe src="https://player.vimeo.com/video/835055775?title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1920" height="1080" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Advance Boxing Program"></iframe>
+  //This video consists of long boxing combinations mixed with head movement and footwork drills. HIIT workouts are added in between combinations for a better workout.
 
   const session = await stripe.checkout.sessions.create(
     {

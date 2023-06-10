@@ -6,7 +6,7 @@ const articleSchema = new Schema({
     type: String,
     required: true,
   },
-  imageUrl: {
+  videoUrl: {
     type: String,
     required: true,
   },

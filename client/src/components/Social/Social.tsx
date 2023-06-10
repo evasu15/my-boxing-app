@@ -54,7 +54,7 @@ const Info = () => {
                         <table>
                             <tr>
                                 <td>Youtube:</td>
-                                <td><a href="https://www.youtube.com/@boxingwitheddie1193">Vist My Youtube</a></td>
+                                <td><a href="https://www.youtube.com/@boxingwitheddie">Vist My Youtube</a></td>
                             </tr>
                         </table>
                         <table>

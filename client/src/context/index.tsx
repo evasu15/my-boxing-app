@@ -29,7 +29,7 @@ const UserProvider = ({ children }: any) => {
   }
 
   const fetchUser = async () => {
-    const { data: response } = await axios.get("http://localhost:8089/auth/me");
+    const { data: response } = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/auth/me`);
 
     if (response.data && response.data.user) {
       setUser({

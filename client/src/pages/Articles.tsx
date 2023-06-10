@@ -7,29 +7,31 @@ import { Link } from "react-router-dom";
 interface Article {
   id: string;
   title: string;
-  imageUrl: string;
+  videoUrl: string;
   content: string;
-}
+};
 
 const CardsContainer = styled.div`
-display: flex;
-flex-wrap: wrap;
-flex-direction: row;
-width: 1300px;
-align-content: space-between;
-align-items: center;
-justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  max-width: 1300px;
+  gap: 32px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 `;
 
 
 const Card = styled.div`
-  height: 45rem;
-  width: 33%;
+  min-height: 100%;
   box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.2);
   padding: 2rem;
   border-radius: 4rem;
-  margin-right: 5rem;
-  margin-left: -2rem;
 `;
 
 const Image = styled.img`
@@ -60,7 +62,14 @@ const ErrorHeader = styled.h2`
   font-size: 3rem;
 `;
 
-const Content = styled.p``;
+const Content = styled.p`
+`;
+
+const VideoEmbed = styled.iframe`
+  width: 100%;
+  aspect-ratio: 16/9;
+  height: auto;
+`;
 
 const Articles = () => {
   const [articles, setArticles] = useState<Article[]>([]);
@@ -71,7 +80,7 @@ const Articles = () => {
 
   const fetchArticles = async () => {
     const { data: response } = await axios.get(
-      "http://localhost:8089/articles"
+      `${process.env.REACT_APP_API_BASE_URL}/articles`
     );
     setArticles(response);
   };
@@ -82,7 +91,9 @@ const Articles = () => {
         <CardsContainer>
           {articles.map((article) => (
             <Card key={article.id}>
-            <Image src={article.imageUrl}/>
+            {/* <Image src={article.imageUrl}/> */}
+            <VideoEmbed width="450" height="315" src={article.videoUrl} title="YouTube video player" allow="title=0 byline=0 portrait=0 speed=0 badge=0 autopause=0 player_id=0 app_id=58479 queryparamtitle=0" allowFullScreen />
+            {/* <iframe width="450" height="315" src="https://www.youtube.com/embed/CRVHDeaRYqM" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe> */}
               <Header>{article.title}</Header>
               <Content>{article.content}</Content>
             </Card>
@@ -99,3 +110,5 @@ const Articles = () => {
 };
 
 export default Articles;
+
+

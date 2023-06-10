@@ -21,8 +21,8 @@ mongoose
     app.use("/subs", subsRoutes);
     app.use("/articles", articlesRoutes); 
 
-    app.listen(8089, () => {
-      console.log(`Now listening to port 8089`);
+    app.listen(8081, () => {
+      console.log(`Now listening to port 8081`);
     });
   })
   .catch((error) => {

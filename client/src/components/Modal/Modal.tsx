@@ -28,12 +28,13 @@ const ModalComponent = ({ text, variant, isSignupFlow }: ModalProps) => {
   const navigate = useNavigate();
 
   const [state, setState] = useContext(UserContext);
-
+  
   const handleClick = async () => {
     let response;
     if (isSignupFlow) {
+      console.log(process.env.REACT_APP_API_BASE_URL);
       const { data: signUpData } = await axios.post(
-        "http://localhost:8089/auth/signup",
+        `${process.env.REACT_APP_API_BASE_URL}/auth/signup`,
         {
           email,
           password,
@@ -42,7 +43,7 @@ const ModalComponent = ({ text, variant, isSignupFlow }: ModalProps) => {
       response = signUpData;
     } else {
       const { data: loginData } = await axios.post(
-        "http://localhost:8089/auth/login",
+        `${process.env.REACT_APP_API_BASE_URL}/auth/login`,
         {
           email,
           password,
